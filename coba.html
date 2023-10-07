@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Query Page</title>
+  </head>
+  <body>
+    <h1>Query Input and Output</h1>
+
+    <form>
+      <label for="query-input">Enter Query:</label>
+      <input type="text" id="query-input" name="query" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <p>Query Output: <span id="query-output"></span></p>
+
+    <script>
+      const query = new URLSearchParams(window.location.search).get("query");
+      document.getElementById("query-input").value = query || "";
+      const queryOutput = document.getElementById("query-output");
+      queryOutput.textContent = query || "No query provided";
+    </script>
+  </body>
+</html>
